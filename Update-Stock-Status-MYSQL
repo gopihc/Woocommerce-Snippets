@@ -1,0 +1,4 @@
+
+update wp_postmeta as tb1 left join wp_postmeta as tb2 on tb1.post_id = tb2.post_id set tb1.meta_value = 'instock' where tb1.meta_key = '_stock_status' and tb1.meta_value = 'outofstock' and tb2.meta_key = '_stock' and tb2.meta_value > 0;
+
+update wp_postmeta as tb1 left join wp_postmeta as tb2 on tb1.post_id = tb2.post_id set tb1.meta_value = 'outofstock' where tb1.meta_key = '_stock_status' and tb1.meta_value = 'instock' and tb2.meta_key = '_stock' and tb2.meta_value = 0;
