@@ -1,0 +1,9 @@
+SELECT post.ID,post_title, metaSku.meta_value AS sku, metaPrice.meta_value AS price, metaPriceRegular.meta_value AS priceregular
+
+FROM wp_posts AS post
+LEFT JOIN wp_postmeta AS metaSku ON post.ID = metaSku.post_id AND metaSku.meta_key = '_sku'
+LEFT JOIN wp_postmeta AS metaPrice ON post.ID = metaPrice.post_id AND metaPrice.meta_key = '_price'
+LEFT JOIN wp_postmeta AS metaPriceRegular ON post.ID = metaPriceRegular.post_id AND metaPriceRegular.meta_key = '_regular_price'
+WHERE metaSku.meta_value IS NOT NULL
+
+
